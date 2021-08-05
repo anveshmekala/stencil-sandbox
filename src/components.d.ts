@@ -21,8 +21,7 @@ export namespace Components {
         "middle": string;
     }
     interface ProgressBar {
-        "currentValue": string;
-        "maxValue": string;
+        "current": number;
     }
 }
 declare global {
@@ -59,8 +58,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface ProgressBar {
-        "currentValue"?: string;
-        "maxValue"?: string;
+        "current"?: number;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
