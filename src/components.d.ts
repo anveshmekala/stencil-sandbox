@@ -22,6 +22,7 @@ export namespace Components {
     }
     interface ProgressBar {
         "current": number;
+        "type": string;
     }
 }
 declare global {
@@ -59,6 +60,7 @@ declare namespace LocalJSX {
     }
     interface ProgressBar {
         "current"?: number;
+        "type"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
