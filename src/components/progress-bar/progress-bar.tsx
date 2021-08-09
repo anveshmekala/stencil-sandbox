@@ -6,12 +6,8 @@ import { Component, h, Host, Listen, Prop } from '@stencil/core';
   shadow: true,
 })
 export class ProgressBar {
-  @Prop({ reflect: true, mutable: true }) current: number;
+  @Prop({ reflect: true, mutable: true }) current: number =0;
   @Prop() type: string
-  @Listen('click', { capture: true })
-  handleClick() {
-    this.current = 100
-  }
 
   render() {
     const progressbarstyle = { width: `${this.current}%` }
@@ -21,19 +17,8 @@ export class ProgressBar {
           <h2>
             Progress Bar
           </h2>
-          {/* <progress class="infinite" id="file" value={this.current} max="100" style=> </progress> */}
-          <div class="pot">
-
-
-          {/* <div class="infinite" style={progressbarstyle
-          }></div> */}
-          <div class="infinite">
-
+          <div class="infinite" style={progressbarstyle}>
           </div>
-                    </div>
-          {/* <button >
-            animate
-          </button> */}
         </div>
       </Host>
     );

@@ -1,71 +1,22 @@
 :host {
   display: block;
 }
- /* progress {
-	width: 30%;
-	height: 1rem;
-	border: 0;
-  
-} 
 
-progress::-webkit-progress-bar {
-	background: lightgray;
-}
-
-
-progress::-webkit-progress-value {
-	background: #06c;
-	transition: width 2000ms ease-in-out;
-  animation: translate3d(100%,0,0) 5000ms linear ease-in-out;
-}  */
 
 .infinite {
-  /* color: black; */
   background-color : black;
   height: 10px;
-  width:200px
-  
-  /* animation: pg 2000ms linear infinite ease-out */
-  /* animation-duration: 2000ms;
-  animation-name: pg;
-  animation-iteration-count: infinite;
-  animation-direction: normal; */
-  /* transition: width 2000ms ease-in-out; */
-}
-
-/* @keyframe pg{
-  from {
-    transform: translate3d(0,0,0)
-  }
-  to{
-
-    transform: translate3d(100%,0,0);
-  }
-}
- */
-
-.pot {
-  bottom: 15%;
-  background-color: black;
   position: absolute;
-  animation: linear ;
+  animation: ease-in-out ;
   animation-name: run;
-  animation-duration: 1s;
+  animation-duration: 2s;
 }
+
 @keyframes run {
-  /* 0% {
-    left: 0;
-  }
-  50% {
-    left: 100%;
-  }
-  100% {
-    left: 0;    
-  } */
   from {
-    transform: translate3d(0,0,0)
+    width:0%
   }
   to{
-    transform: translate3d(100%,0,0);
+   width:50%
   }
 }
