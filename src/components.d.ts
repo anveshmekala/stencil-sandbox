@@ -21,8 +21,9 @@ export namespace Components {
         "middle": string;
     }
     interface ProgressBar {
-        "current": number;
         "type": string;
+    }
+    interface SelectProgressbar {
     }
 }
 declare global {
@@ -38,9 +39,16 @@ declare global {
         prototype: HTMLProgressBarElement;
         new (): HTMLProgressBarElement;
     };
+    interface HTMLSelectProgressbarElement extends Components.SelectProgressbar, HTMLStencilElement {
+    }
+    var HTMLSelectProgressbarElement: {
+        prototype: HTMLSelectProgressbarElement;
+        new (): HTMLSelectProgressbarElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "progress-bar": HTMLProgressBarElement;
+        "select-progressbar": HTMLSelectProgressbarElement;
     }
 }
 declare namespace LocalJSX {
@@ -59,12 +67,14 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface ProgressBar {
-        "current"?: number;
         "type"?: string;
+    }
+    interface SelectProgressbar {
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "progress-bar": ProgressBar;
+        "select-progressbar": SelectProgressbar;
     }
 }
 export { LocalJSX as JSX };
@@ -73,6 +83,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "progress-bar": LocalJSX.ProgressBar & JSXBase.HTMLAttributes<HTMLProgressBarElement>;
+            "select-progressbar": LocalJSX.SelectProgressbar & JSXBase.HTMLAttributes<HTMLSelectProgressbarElement>;
         }
     }
 }

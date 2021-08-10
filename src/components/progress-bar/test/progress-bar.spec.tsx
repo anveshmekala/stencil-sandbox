@@ -15,4 +15,11 @@ describe('progress-bar', () => {
       </progress-bar>
     `);
   });
+  it('should render with determinite class ', async()=>{
+    const page = await newSpecPage({
+      components: [ProgressBar],
+      html: `<progress-bar type="Determinate"></progress-bar>`,
+    });
+    console.log(page.root.className)
+  })
 });

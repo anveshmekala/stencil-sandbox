@@ -1,22 +1,36 @@
 :host {
   display: block;
 }
-
-
-.infinite {
+.progressbar{
   background-color : black;
-  height: 10px;
+  height: 4px;
   position: absolute;
+}
+.indeterminate {  
+  width: 100px;
   animation: ease-in-out ;
-  animation-name: run;
-  animation-duration: 2s;
+  animation : alternate 1s infinite indeterminate ease-in-out
 }
 
-@keyframes run {
+.determinate{
+  width: 50%; 
+  animation: 2s determinate ease-in-out
+}
+
+@keyframes determinate {
   from {
     width:0%
   }
   to{
    width:50%
+  }
+}
+
+@keyframes indeterminate {
+  from {
+    transform: translate3d(0,0,0)
+  }
+  to{
+    transform: translate3d(500%,0,0)
   }
 }
