@@ -1,4 +1,4 @@
-import { Component, h, Host, Listen, Prop } from '@stencil/core';
+import { Component, h, Host,Prop } from '@stencil/core';
 
 @Component({
   tag: 'progress-bar',
@@ -6,24 +6,19 @@ import { Component, h, Host, Listen, Prop } from '@stencil/core';
   shadow: true,
 })
 export class ProgressBar {
-  @Prop({ reflect: true, mutable: true }) current: number;
+  @Prop() type: string = 'InDeterminate'
 
-  @Listen('click', { capture: true })
-  handleClick() {
-    this.current = 100
-  }
-  
   render() {
     return (
       <Host>
         <div>
-          <h2>
-            Progress Bar
-          </h2>
-          <progress id="file" value={this.current} max="100"> </progress>
-          <button >
-            animate
-          </button>
+            <div class={ {
+              progressbar: true,
+              indeterminate: this.type === 'InDeterminate',
+              determinate : this.type=== 'Determinate'
+            }} 
+            >
+            </div>
         </div>
       </Host>
     );

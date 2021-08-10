@@ -1,19 +1,36 @@
 :host {
   display: block;
 }
-progress {
-	appearance: none;
-	display: block;
-	width: 30%;
-	height: 1rem;
-	border: 0;
+.progressbar{
+  background-color : black;
+  height: 4px;
+  position: absolute;
+}
+.indeterminate {  
+  width: 100px;
+  animation: ease-in-out ;
+  animation : alternate 1s infinite indeterminate ease-in-out
 }
 
-progress::-webkit-progress-bar {
-	background: lightgray;
+.determinate{
+  width: 50%; 
+  animation: 2s determinate ease-in-out
 }
 
-progress::-webkit-progress-value {
-	background: #06c;
-	transition: width 2500ms ease-in-out;
+@keyframes determinate {
+  from {
+    width:0%
+  }
+  to{
+   width:50%
+  }
+}
+
+@keyframes indeterminate {
+  from {
+    transform: translate3d(0,0,0)
+  }
+  to{
+    transform: translate3d(500%,0,0)
+  }
 }
