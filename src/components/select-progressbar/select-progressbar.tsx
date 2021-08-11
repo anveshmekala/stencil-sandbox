@@ -9,7 +9,7 @@ export class SelectProgressbar {
 
   @State() selectValue: string;
 
-  handleSelect(event) {
+  handleSelect(event: any) {
     this.selectValue = event.target.value;
   }
 

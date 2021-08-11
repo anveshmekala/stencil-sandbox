@@ -26,4 +26,16 @@ describe('select-progressbar', () => {
       </select-progressbar>
     `);
   });
+
+  it('should update the state value ', () =>{
+    const selectComponent = new SelectProgressbar();
+     selectComponent.handleSelect(new Event('InDeterminate'));
+    expect(selectComponent.selectValue).toBe('InDeterminate')
+  })
+
+  it('should update the state value ', () =>{
+    const selectComponent = new SelectProgressbar();
+     selectComponent.handleSelect(new Event('Determinate'));
+    expect(selectComponent.selectValue).toBe('Determinate')
+  })
 });
