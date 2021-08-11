@@ -11,7 +11,7 @@ export class ProgressBar {
   render() {
     return (
       <Host>
-        <div>
+        
             <div class={ {
               progressbar: true,
               indeterminate: this.type === 'InDeterminate',
@@ -19,7 +19,6 @@ export class ProgressBar {
             }} 
             >
             </div>
-        </div>
       </Host>
     );
   }
