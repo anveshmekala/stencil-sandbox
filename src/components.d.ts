@@ -37,6 +37,8 @@ export namespace Components {
     }
     interface SelectProgressbar {
     }
+    interface ToggleButton {
+    }
 }
 declare global {
     interface HTMLAnveshmekalaRadioGroupElement extends Components.AnveshmekalaRadioGroup, HTMLStencilElement {
@@ -69,12 +71,19 @@ declare global {
         prototype: HTMLSelectProgressbarElement;
         new (): HTMLSelectProgressbarElement;
     };
+    interface HTMLToggleButtonElement extends Components.ToggleButton, HTMLStencilElement {
+    }
+    var HTMLToggleButtonElement: {
+        prototype: HTMLToggleButtonElement;
+        new (): HTMLToggleButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "anveshmekala-radio-group": HTMLAnveshmekalaRadioGroupElement;
         "anveshmekala-radio-item": HTMLAnveshmekalaRadioItemElement;
         "my-component": HTMLMyComponentElement;
         "progress-bar": HTMLProgressBarElement;
         "select-progressbar": HTMLSelectProgressbarElement;
+        "toggle-button": HTMLToggleButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -117,12 +126,15 @@ declare namespace LocalJSX {
     }
     interface SelectProgressbar {
     }
+    interface ToggleButton {
+    }
     interface IntrinsicElements {
         "anveshmekala-radio-group": AnveshmekalaRadioGroup;
         "anveshmekala-radio-item": AnveshmekalaRadioItem;
         "my-component": MyComponent;
         "progress-bar": ProgressBar;
         "select-progressbar": SelectProgressbar;
+        "toggle-button": ToggleButton;
     }
 }
 export { LocalJSX as JSX };
@@ -134,6 +146,7 @@ declare module "@stencil/core" {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "progress-bar": LocalJSX.ProgressBar & JSXBase.HTMLAttributes<HTMLProgressBarElement>;
             "select-progressbar": LocalJSX.SelectProgressbar & JSXBase.HTMLAttributes<HTMLSelectProgressbarElement>;
+            "toggle-button": LocalJSX.ToggleButton & JSXBase.HTMLAttributes<HTMLToggleButtonElement>;
         }
     }
 }

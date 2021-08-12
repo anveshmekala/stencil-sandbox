@@ -1,0 +1,27 @@
+:host {
+  display: block;
+}
+
+.slider {
+  position: absolute;
+  width:20px;
+  height:20px;
+  background-color: #808080;
+  border-radius: 40%;
+}
+
+@keyframes trans {
+
+  0% {
+    transform: translateX(0)
+  }
+  100% {
+    transform: translateX(100%)
+  }
+
+}
+
+
+.slide {
+  animation: alternate 500ms  trans ease-in-out;
+}
