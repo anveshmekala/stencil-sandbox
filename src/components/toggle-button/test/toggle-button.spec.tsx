@@ -10,7 +10,17 @@ describe('toggle-button', () => {
     expect(page.root).toEqualHtml(`
       <toggle-button>
         <mock:shadow-root>
-          <slot></slot>
+          <slot>
+          <div>
+            <div class="container">
+            <input  type="checkbox" />
+              <div
+                class="slider"
+              ></div>
+            </div>
+          </div>
+          <h4> OFF</h4>
+          </slot>
         </mock:shadow-root>
       </toggle-button>
     `);
