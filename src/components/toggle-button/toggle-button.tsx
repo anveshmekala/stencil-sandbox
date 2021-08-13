@@ -8,7 +8,6 @@ import { Component, Host, h, State } from '@stencil/core';
 export class ToggleButton {
   @State() isChecked: boolean = false;
 
-  //scope issue
   handleToggle = () => {
     this.isChecked = !this.isChecked;
   };
@@ -18,17 +17,18 @@ export class ToggleButton {
       <Host>
         <slot>
           <div>
-            <div class="container">  
-            <div
-              class={{
-                slider: true,
-                slide: this.isChecked,
-              }}
-            ></div>
-              </div>
-            <input class="checkmark" type="checkbox" onClick={this.handleToggle} />
+            <div class="container">
+            <input  type="checkbox" onClick={this.handleToggle} />
+              <div
+                class={{
+                  slider: true,
+                  slide: this.isChecked,
+                }}
+              ></div>
+            </div>
+           
           </div>
-          <h4>{this.isChecked}</h4>
+          <h4> {this.isChecked ? "ON" : "OFF"}</h4>
         </slot>
       </Host>
     );
