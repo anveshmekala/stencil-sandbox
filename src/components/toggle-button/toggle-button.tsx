@@ -18,14 +18,17 @@ export class ToggleButton {
       <Host>
         <slot>
           <div>
-            <input type="checkbox" onClick={this.handleToggle} />
+            <div class="container">  
             <div
               class={{
                 slider: true,
                 slide: this.isChecked,
               }}
             ></div>
+              </div>
+            <input class="checkmark" type="checkbox" onClick={this.handleToggle} />
           </div>
+          <h4>{this.isChecked}</h4>
         </slot>
       </Host>
     );
