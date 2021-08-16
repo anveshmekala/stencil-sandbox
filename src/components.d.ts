@@ -24,6 +24,7 @@ export namespace Components {
         "type": string;
     }
     interface RadioGroup {
+        "list": Array<string>;
     }
     interface SelectProgressbar {
     }
@@ -79,6 +80,7 @@ declare namespace LocalJSX {
         "type"?: string;
     }
     interface RadioGroup {
+        "list"?: Array<string>;
     }
     interface SelectProgressbar {
     }

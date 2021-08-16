@@ -1,18 +1,34 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h, Prop, Watch } from "@stencil/core";
 
 @Component({
-  tag: 'radio-group',
-  styleUrl: 'radio-group.css',
+  tag: "radio-group",
+  styleUrl: "radio-group.css",
   shadow: true,
 })
 export class RadioGroup {
-
+  @Prop({ reflect: true }) list: Array<string>;
+  
+  handleChange =()=>{
+    console.log("Selected")
+  }
   render() {
     return (
       <Host>
-        <slot></slot>
+        <slot>
+          <form onInput={this.handleChange}>
+          <div>
+            {this.list.map((item) => {
+              return (
+                <div>
+                  <input type="radio"  id={item} name={item} value={item} />
+                  <label>{item}</label>
+                </div>
+              );
+            })}
+          </div>
+          </form>
+        </slot>
       </Host>
     );
   }
-
 }
