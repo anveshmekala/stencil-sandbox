@@ -25,4 +25,15 @@ describe('toggle-button', () => {
       </toggle-button>
     `);
   });
+
+  it('isChecked to be false on component render',()=>{
+    const toggleButton = new ToggleButton();
+    expect(toggleButton.isChecked).toBe(false);
+  })
+
+  it('isChecked to be true on handleToggle',()=>{
+    const toggleButton = new ToggleButton();
+    toggleButton.handleToggle()
+    expect(toggleButton.isChecked).toBe(true);
+  })
 });
