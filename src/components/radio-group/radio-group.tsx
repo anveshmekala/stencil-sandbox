@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Watch } from "@stencil/core";
+import { Component, Host, h, Prop, Watch, State } from "@stencil/core";
 
 @Component({
   tag: "radio-group",
@@ -7,26 +7,37 @@ import { Component, Host, h, Prop, Watch } from "@stencil/core";
 })
 export class RadioGroup {
   @Prop({ reflect: true }) list: Array<string>;
-  
-  handleChange =()=>{
-    console.log("Selected")
-  }
+  @State() isChecked: number;
+  @State() selectedItem: string;
+
+  handleChange = (e: any) => {
+    this.isChecked = parseInt(e.target.value);
+    this.selectedItem = e.target.name;
+  };
+
   render() {
     return (
       <Host>
         <slot>
-          <form onInput={this.handleChange}>
-          <div>
-            {this.list.map((item) => {
-              return (
-                <div>
-                  <input type="radio"  id={item} name={item} value={item} />
-                  <label>{item}</label>
-                </div>
-              );
-            })}
-          </div>
+          <form>
+            <div>
+              {this.list.map((item, i) => {
+                return (
+                  <div>
+                    <input
+                      type="radio"
+                      name={item}
+                      value={i}
+                      checked={this.isChecked === i}
+                      onChange={this.handleChange}
+                    />
+                    <label>{item}</label>
+                  </div>
+                );
+              })}
+            </div>
           </form>
+          <div>SelectedItem : {this.selectedItem && this.selectedItem}</div>
         </slot>
       </Host>
     );
