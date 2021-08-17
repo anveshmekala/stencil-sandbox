@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface EmojiRain {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -23,10 +25,19 @@ export namespace Components {
     interface ProgressBar {
         "type": string;
     }
+    interface RadioGroup {
+        "list": Array<string>;
+    }
     interface SelectProgressbar {
     }
 }
 declare global {
+    interface HTMLEmojiRainElement extends Components.EmojiRain, HTMLStencilElement {
+    }
+    var HTMLEmojiRainElement: {
+        prototype: HTMLEmojiRainElement;
+        new (): HTMLEmojiRainElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -39,6 +50,12 @@ declare global {
         prototype: HTMLProgressBarElement;
         new (): HTMLProgressBarElement;
     };
+    interface HTMLRadioGroupElement extends Components.RadioGroup, HTMLStencilElement {
+    }
+    var HTMLRadioGroupElement: {
+        prototype: HTMLRadioGroupElement;
+        new (): HTMLRadioGroupElement;
+    };
     interface HTMLSelectProgressbarElement extends Components.SelectProgressbar, HTMLStencilElement {
     }
     var HTMLSelectProgressbarElement: {
@@ -46,12 +63,16 @@ declare global {
         new (): HTMLSelectProgressbarElement;
     };
     interface HTMLElementTagNameMap {
+        "emoji-rain": HTMLEmojiRainElement;
         "my-component": HTMLMyComponentElement;
         "progress-bar": HTMLProgressBarElement;
+        "radio-group": HTMLRadioGroupElement;
         "select-progressbar": HTMLSelectProgressbarElement;
     }
 }
 declare namespace LocalJSX {
+    interface EmojiRain {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -69,11 +90,16 @@ declare namespace LocalJSX {
     interface ProgressBar {
         "type"?: string;
     }
+    interface RadioGroup {
+        "list"?: Array<string>;
+    }
     interface SelectProgressbar {
     }
     interface IntrinsicElements {
+        "emoji-rain": EmojiRain;
         "my-component": MyComponent;
         "progress-bar": ProgressBar;
+        "radio-group": RadioGroup;
         "select-progressbar": SelectProgressbar;
     }
 }
@@ -81,8 +107,10 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "emoji-rain": LocalJSX.EmojiRain & JSXBase.HTMLAttributes<HTMLEmojiRainElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "progress-bar": LocalJSX.ProgressBar & JSXBase.HTMLAttributes<HTMLProgressBarElement>;
+            "radio-group": LocalJSX.RadioGroup & JSXBase.HTMLAttributes<HTMLRadioGroupElement>;
             "select-progressbar": LocalJSX.SelectProgressbar & JSXBase.HTMLAttributes<HTMLSelectProgressbarElement>;
         }
     }
