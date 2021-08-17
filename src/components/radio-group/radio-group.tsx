@@ -7,11 +7,11 @@ import { Component, Host, h, Prop, Watch, State } from "@stencil/core";
 })
 export class RadioGroup {
   @Prop({ reflect: true }) list: Array<string>;
-  @State() isChecked: number;
+  @State() selectedIndex: number;
   @State() selectedItem: string;
 
   handleChange = (e: any) => {
-    this.isChecked = parseInt(e.target.value);
+    this.selectedIndex = parseInt(e.target.value);
     this.selectedItem = e.target.name;
   };
 
@@ -28,7 +28,7 @@ export class RadioGroup {
                       type="radio"
                       name={item}
                       value={i}
-                      checked={this.isChecked === i}
+                      checked={this.selectedIndex === i}
                       onChange={this.handleChange}
                     />
                     <label>{item}</label>
