@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Watch, State } from "@stencil/core";
+import { Component, Host, h, Prop, State } from "@stencil/core";
 
 @Component({
   tag: "radio-group",
@@ -6,7 +6,7 @@ import { Component, Host, h, Prop, Watch, State } from "@stencil/core";
   shadow: true,
 })
 export class RadioGroup {
-  @Prop() list: Array<string>;
+  @Prop() list: Array<string> ;
   @State() selectedIndex: number;
   @State() selectedItem: string;
 
@@ -18,7 +18,7 @@ export class RadioGroup {
   render() {
     return (
       <Host>
-        {this.list.map((item, i) => {
+        {this.list?.map((item, i) => {
           return (
             <list>
               <label>
