@@ -9,7 +9,7 @@ import {
 } from "@stencil/core";
 
 @Component({
-  tag: "radio-group",
+  tag: "anveshmekala-radio-group",
   styleUrl: "radio-group.css",
   shadow: true,
 })
@@ -19,10 +19,10 @@ export class RadioGroup {
   @State() selectedItem: string;
   @Event() optionChanged: EventEmitter<{ selectedItem: string }>;
 
-  private handleChange = (e: CustomEvent) => {
-    this.selectedIndex = parseInt(e.target["value"]);
-    this.selectedItem = e.target["name"];
-    this.optionChanged.emit(e.target["name"]);
+   handleChange = (e:any) => {
+    this.selectedIndex = parseInt(e.target.value);
+    this.selectedItem = e.target.name;
+    this.optionChanged.emit(e.target.name);
   };
 
   render() {
