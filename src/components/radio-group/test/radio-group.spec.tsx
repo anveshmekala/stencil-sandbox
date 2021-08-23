@@ -9,7 +9,4 @@ describe("radio-group", () => {
    expect(radioGroup.selectedIndex).toBe(2)
    expect(radioGroup.selectedItem).toBe("SpiderMan")
  })
-  
- 
-
 });

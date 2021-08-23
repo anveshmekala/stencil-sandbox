@@ -81,6 +81,7 @@ declare namespace LocalJSX {
     }
     interface RadioGroup {
         "list"?: Array<string>;
+        "onOptionChanged"?: (event: CustomEvent<{ selectedItem: string }>) => void;
     }
     interface SelectProgressbar {
     }

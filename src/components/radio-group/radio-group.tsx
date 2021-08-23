@@ -1,4 +1,12 @@
-import { Component, Host, h, Prop, State } from "@stencil/core";
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  State,
+  Event,
+  EventEmitter,
+} from "@stencil/core";
 
 @Component({
   tag: "radio-group",
@@ -6,13 +14,15 @@ import { Component, Host, h, Prop, State } from "@stencil/core";
   shadow: true,
 })
 export class RadioGroup {
-  @Prop() list: Array<string> ;
+  @Prop() list: Array<string>;
   @State() selectedIndex: number;
   @State() selectedItem: string;
+  @Event() optionChanged: EventEmitter<{ selectedItem: string }>;
 
-  handleChange = (e: any) => {
-    this.selectedIndex = parseInt(e.target.value);
-    this.selectedItem = e.target.name;
+  private handleChange = (e: CustomEvent) => {
+    this.selectedIndex = parseInt(e.target["value"]);
+    this.selectedItem = e.target["name"];
+    this.optionChanged.emit(e.target["name"]);
   };
 
   render() {
