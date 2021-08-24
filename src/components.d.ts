@@ -7,7 +7,6 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AnveshmekalaRadioGroup {
-        "list": Array<string>;
     }
     interface MyComponent {
         /**
@@ -25,6 +24,10 @@ export namespace Components {
     }
     interface ProgressBar {
         "type": string;
+    }
+    interface RadioItem {
+        "checked": boolean;
+        "label": string;
     }
     interface SelectProgressbar {
     }
@@ -48,6 +51,12 @@ declare global {
         prototype: HTMLProgressBarElement;
         new (): HTMLProgressBarElement;
     };
+    interface HTMLRadioItemElement extends Components.RadioItem, HTMLStencilElement {
+    }
+    var HTMLRadioItemElement: {
+        prototype: HTMLRadioItemElement;
+        new (): HTMLRadioItemElement;
+    };
     interface HTMLSelectProgressbarElement extends Components.SelectProgressbar, HTMLStencilElement {
     }
     var HTMLSelectProgressbarElement: {
@@ -58,12 +67,12 @@ declare global {
         "anveshmekala-radio-group": HTMLAnveshmekalaRadioGroupElement;
         "my-component": HTMLMyComponentElement;
         "progress-bar": HTMLProgressBarElement;
+        "radio-item": HTMLRadioItemElement;
         "select-progressbar": HTMLSelectProgressbarElement;
     }
 }
 declare namespace LocalJSX {
     interface AnveshmekalaRadioGroup {
-        "list"?: Array<string>;
         "onOptionChanged"?: (event: CustomEvent<{ selectedItem: string }>) => void;
     }
     interface MyComponent {
@@ -83,12 +92,18 @@ declare namespace LocalJSX {
     interface ProgressBar {
         "type"?: string;
     }
+    interface RadioItem {
+        "checked"?: boolean;
+        "label"?: string;
+        "onOptionSelected"?: (event: CustomEvent<{name: string }>) => void;
+    }
     interface SelectProgressbar {
     }
     interface IntrinsicElements {
         "anveshmekala-radio-group": AnveshmekalaRadioGroup;
         "my-component": MyComponent;
         "progress-bar": ProgressBar;
+        "radio-item": RadioItem;
         "select-progressbar": SelectProgressbar;
     }
 }
@@ -99,6 +114,7 @@ declare module "@stencil/core" {
             "anveshmekala-radio-group": LocalJSX.AnveshmekalaRadioGroup & JSXBase.HTMLAttributes<HTMLAnveshmekalaRadioGroupElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "progress-bar": LocalJSX.ProgressBar & JSXBase.HTMLAttributes<HTMLProgressBarElement>;
+            "radio-item": LocalJSX.RadioItem & JSXBase.HTMLAttributes<HTMLRadioItemElement>;
             "select-progressbar": LocalJSX.SelectProgressbar & JSXBase.HTMLAttributes<HTMLSelectProgressbarElement>;
         }
     }
