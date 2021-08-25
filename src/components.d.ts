@@ -7,7 +7,10 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AnveshmekalaRadioGroup {
-        "list": Array<string>;
+    }
+    interface AnveshmekalaRadioItem {
+        "checked": boolean;
+        "label": string;
     }
     interface MyComponent {
         /**
@@ -36,6 +39,12 @@ declare global {
         prototype: HTMLAnveshmekalaRadioGroupElement;
         new (): HTMLAnveshmekalaRadioGroupElement;
     };
+    interface HTMLAnveshmekalaRadioItemElement extends Components.AnveshmekalaRadioItem, HTMLStencilElement {
+    }
+    var HTMLAnveshmekalaRadioItemElement: {
+        prototype: HTMLAnveshmekalaRadioItemElement;
+        new (): HTMLAnveshmekalaRadioItemElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -56,6 +65,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "anveshmekala-radio-group": HTMLAnveshmekalaRadioGroupElement;
+        "anveshmekala-radio-item": HTMLAnveshmekalaRadioItemElement;
         "my-component": HTMLMyComponentElement;
         "progress-bar": HTMLProgressBarElement;
         "select-progressbar": HTMLSelectProgressbarElement;
@@ -63,8 +73,12 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AnveshmekalaRadioGroup {
-        "list"?: Array<string>;
-        "onOptionChanged"?: (event: CustomEvent<{ selectedItem: string }>) => void;
+        "onOptionChanged"?: (event: CustomEvent<{ selectedRadioItem: string }>) => void;
+    }
+    interface AnveshmekalaRadioItem {
+        "checked"?: boolean;
+        "label"?: string;
+        "onOptionSelected"?: (event: CustomEvent<{ name: string }>) => void;
     }
     interface MyComponent {
         /**
@@ -87,6 +101,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "anveshmekala-radio-group": AnveshmekalaRadioGroup;
+        "anveshmekala-radio-item": AnveshmekalaRadioItem;
         "my-component": MyComponent;
         "progress-bar": ProgressBar;
         "select-progressbar": SelectProgressbar;
@@ -97,6 +112,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "anveshmekala-radio-group": LocalJSX.AnveshmekalaRadioGroup & JSXBase.HTMLAttributes<HTMLAnveshmekalaRadioGroupElement>;
+            "anveshmekala-radio-item": LocalJSX.AnveshmekalaRadioItem & JSXBase.HTMLAttributes<HTMLAnveshmekalaRadioItemElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "progress-bar": LocalJSX.ProgressBar & JSXBase.HTMLAttributes<HTMLProgressBarElement>;
             "select-progressbar": LocalJSX.SelectProgressbar & JSXBase.HTMLAttributes<HTMLSelectProgressbarElement>;

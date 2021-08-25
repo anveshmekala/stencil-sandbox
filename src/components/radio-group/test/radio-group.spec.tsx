@@ -1,12 +1,21 @@
-
+import { newSpecPage } from "@stencil/core/testing";
 import { RadioGroup } from "../radio-group";
 
 describe("radio-group", () => {
-
-  it('should set isChecked value to 1', ()=>{
-   const radioGroup =  new RadioGroup();
-   radioGroup.handleChange( {target: {value : 2 ,name:"SpiderMan"} })
-   expect(radioGroup.selectedIndex).toBe(2)
-   expect(radioGroup.selectedItem).toBe("SpiderMan")
- })
+  it("renders", async () => {
+    const page = await newSpecPage({
+      components: [RadioGroup],
+      html: `<anveshmekala-radio-group>
+      <anveshmekala-radio-item></anveshmekala-radio-item>
+      </anveshmekala-radio-group>`,
+    });
+    expect(page.root).toEqualHtml(`
+          <anveshmekala-radio-group role="radiogroup">
+          <mock:shadow-root>
+          <slot></slot>
+          </mock:shadow-root>
+          <anveshmekala-radio-item></anveshmekala-radio-item>
+          </anveshmekala-radio-group>
+        `);
+  });
 });

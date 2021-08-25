@@ -2,10 +2,10 @@ import {
   Component,
   Host,
   h,
-  Prop,
-  State,
   Event,
   EventEmitter,
+  Element,
+  Listen,
 } from "@stencil/core";
 
 @Component({
@@ -14,38 +14,29 @@ import {
   shadow: true,
 })
 export class RadioGroup {
-  @Prop() list: Array<string>;
-  @State() selectedIndex: number;
-  @State() selectedItem: string;
-  @Event() optionChanged: EventEmitter<{ selectedItem: string }>;
+  @Event() optionChanged: EventEmitter<{ selectedRadioItem: string }>;
+  @Element() el: HTMLElement;
 
-   handleChange = (e:any) => {
-    this.selectedIndex = parseInt(e.target.value);
-    this.selectedItem = e.target.name;
-    this.optionChanged.emit(e.target.name);
-  };
+  @Listen("optionSelected")
+  handleSelection(event: CustomEvent<{ name: string }>) {
+    console.log(event.detail)
+    const otherRadioButtons = Array.from(
+      this.el.querySelectorAll("radio-item")
+    ).filter(
+      (radioItem: HTMLAnveshmekalaRadioItemElement) => radioItem.label != event.detail.name
+    );
+    otherRadioButtons.forEach((radioItem: HTMLAnveshmekalaRadioItemElement) => {
+      if (radioItem.checked) {
+        radioItem.checked = false;
+      }
+    });
+    this.optionChanged.emit({ selectedRadioItem: event.detail.name });
+  }
 
   render() {
     return (
-      <Host>
-        {this.list?.map((item, i) => {
-          return (
-            <list>
-              <label>
-                <input
-                  type="radio"
-                  name={item}
-                  value={i}
-                  checked={this.selectedIndex === i}
-                  onChange={this.handleChange}
-                  id={item}
-                />
-                {item}
-              </label>
-            </list>
-          );
-        })}
-        <div>SelectedItem : {this.selectedItem || null}</div>
+      <Host role="radiogroup">
+        <slot />
       </Host>
     );
   }
