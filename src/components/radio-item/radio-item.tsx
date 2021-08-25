@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, EventEmitter,Event } from "@stencil/core";
+import { Component, Host, h, Prop, EventEmitter, Event } from "@stencil/core";
 
 @Component({
   tag: "radio-item",
@@ -7,13 +7,13 @@ import { Component, Host, h, Prop, EventEmitter,Event } from "@stencil/core";
 })
 export class RadioItem {
   @Prop() label: string;
-  @Event() optionSelected : EventEmitter<{name: string }>
-  @Prop({mutable: true}) checked : boolean = false;
+  @Prop({ mutable: true }) checked: boolean = false;
+  @Event() optionSelected: EventEmitter<{ name: string }>;
 
-  handleClick=()=>{
-    this.checked = true
-    this.optionSelected.emit({name : this.label})
-  }
+  handleClick = () => {
+    this.checked = true;
+    this.optionSelected.emit({ name: this.label });
+  };
   render() {
     return (
       <Host>

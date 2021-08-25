@@ -2,8 +2,6 @@ import {
   Component,
   Host,
   h,
-  Prop,
-  State,
   Event,
   EventEmitter,
   Element,
@@ -16,24 +14,29 @@ import {
   shadow: true,
 })
 export class RadioGroup {
-  @Event() optionChanged: EventEmitter<{ selectedItem: string }>;
+  @Event() optionChanged: EventEmitter<{ selectedRadioItem: string }>;
   @Element() el: HTMLElement;
 
-  @Listen('optionSelected')
-  handleSelection(event : CustomEvent<{name : string}>){
-  const otherRadioButton = Array.from(this.el.querySelectorAll('radio-item')).filter((item)=> item.label != event.detail.name)
-  otherRadioButton.forEach((item)=>{
-    console.log(item.label, item.checked)
-    if(item.checked ){
-      item.checked = false;
-    }
-  })
+  @Listen("optionSelected")
+  handleSelection(event: CustomEvent<{ name: string }>) {
+    console.log(event.detail)
+    const otherRadioButtons = Array.from(
+      this.el.querySelectorAll("radio-item")
+    ).filter(
+      (radioItem: HTMLRadioItemElement) => radioItem.label != event.detail.name
+    );
+    otherRadioButtons.forEach((radioItem: HTMLRadioItemElement) => {
+      if (radioItem.checked) {
+        radioItem.checked = false;
+      }
+    });
+    this.optionChanged.emit({ selectedRadioItem: event.detail.name });
   }
 
   render() {
     return (
       <Host role="radiogroup">
-        <slot/>
+        <slot />
       </Host>
     );
   }

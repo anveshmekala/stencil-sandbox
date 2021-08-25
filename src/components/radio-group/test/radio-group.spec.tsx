@@ -1,12 +1,18 @@
-
+import { newSpecPage } from "@stencil/core/testing";
 import { RadioGroup } from "../radio-group";
+
+
 
 describe("radio-group", () => {
 
-//   it('should set isChecked value to 1', ()=>{
-//    const radioGroup =  new RadioGroup();
-//    radioGroup.handleChange( {target: {value : 2 ,name:"SpiderMan"} })
-//    expect(radioGroup.selectedIndex).toBe(2)
-//    expect(radioGroup.selectedItem).toBe("SpiderMan")
-//  })
+    it('renders', async () => {
+        const page = await newSpecPage({
+          components: [RadioGroup],
+          html: `<radio-group></radio-group>`,
+        });
+        expect(page.root).toEqualHtml(`
+          <radio-group>
+          </radio-group>
+        `);
+      });
 });

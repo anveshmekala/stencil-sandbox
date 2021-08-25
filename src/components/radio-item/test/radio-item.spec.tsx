@@ -1,18 +1,10 @@
-import { newSpecPage } from '@stencil/core/testing';
-import { RadioItem } from '../radio-item';
+import { RadioItem } from "../radio-item";
 
-describe('radio-item', () => {
-  it('renders', async () => {
-    const page = await newSpecPage({
-      components: [RadioItem],
-      html: `<radio-item></radio-item>`,
-    });
-    expect(page.root).toEqualHtml(`
-      <radio-item>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-      </radio-item>
-    `);
+describe("radio-item", () => {
+  it("should set the checked value to true", () => {
+    const page = new RadioItem();
+    expect(page.checked).toBe(false);
+    page.handleClick();
+    expect(page.checked).toBe(true);
   });
 });

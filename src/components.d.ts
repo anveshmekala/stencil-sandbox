@@ -73,7 +73,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AnveshmekalaRadioGroup {
-        "onOptionChanged"?: (event: CustomEvent<{ selectedItem: string }>) => void;
+        "onOptionChanged"?: (event: CustomEvent<{ selectedRadioItem: string }>) => void;
     }
     interface MyComponent {
         /**
@@ -95,7 +95,7 @@ declare namespace LocalJSX {
     interface RadioItem {
         "checked"?: boolean;
         "label"?: string;
-        "onOptionSelected"?: (event: CustomEvent<{name: string }>) => void;
+        "onOptionSelected"?: (event: CustomEvent<{ name: string }>) => void;
     }
     interface SelectProgressbar {
     }
