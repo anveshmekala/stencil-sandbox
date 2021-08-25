@@ -12,13 +12,13 @@ describe('radio-item', () => {
   it("should emit optionSelected event", async() => {
     const page = await newE2EPage({html :'<anveshmekala-radio-item></anveshmekala-radio-item>'});
     await page.$eval("anveshmekala-radio-item", (ele: any) => {
-      ele.label= ["Batman"];
+      ele.label= "Batman";
     });
     const spy = await page.spyOnEvent('optionSelected')
     const radioItem  = await page.find('anveshmekala-radio-item >>> input')
     await radioItem.click();
     expect(spy).toHaveReceivedEventDetail({
-      name: ["Batman"]
+      name: "Batman"
     })
   });
 });
