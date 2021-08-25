@@ -23,9 +23,9 @@ export class RadioGroup {
     const otherRadioButtons = Array.from(
       this.el.querySelectorAll("radio-item")
     ).filter(
-      (radioItem: HTMLRadioItemElement) => radioItem.label != event.detail.name
+      (radioItem: HTMLAnveshmekalaRadioItemElement) => radioItem.label != event.detail.name
     );
-    otherRadioButtons.forEach((radioItem: HTMLRadioItemElement) => {
+    otherRadioButtons.forEach((radioItem: HTMLAnveshmekalaRadioItemElement) => {
       if (radioItem.checked) {
         radioItem.checked = false;
       }

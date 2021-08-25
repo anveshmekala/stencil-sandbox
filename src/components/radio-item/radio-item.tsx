@@ -1,7 +1,7 @@
 import { Component, Host, h, Prop, EventEmitter, Event } from "@stencil/core";
 
 @Component({
-  tag: "radio-item",
+  tag: "anveshmekala-radio-item",
   styleUrl: "radio-item.css",
   shadow: true,
 })
