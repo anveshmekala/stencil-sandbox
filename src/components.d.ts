@@ -9,7 +9,13 @@ export namespace Components {
     interface AnveshmekalaRadioGroup {
     }
     interface AnveshmekalaRadioItem {
+        /**
+          * The checked value of the radio item.
+         */
         "checked": boolean;
+        /**
+          * label of the radio item.
+         */
         "label": string;
     }
     interface MyComponent {
@@ -73,11 +79,23 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AnveshmekalaRadioGroup {
+        /**
+          * Fires in when there is a change in selection of radioitem. It is recommended to attach the listener directly to radio-group component.
+         */
         "onOptionChanged"?: (event: CustomEvent<{ selectedRadioItem: string }>) => void;
     }
     interface AnveshmekalaRadioItem {
+        /**
+          * The checked value of the radio item.
+         */
         "checked"?: boolean;
+        /**
+          * label of the radio item.
+         */
         "label"?: string;
+        /**
+          * Event is emitted when the radio is checked. It is not recommended to listen to this event when radio-item is grouped with radio-group
+         */
         "onOptionSelected"?: (event: CustomEvent<{ name: string }>) => void;
     }
     interface MyComponent {

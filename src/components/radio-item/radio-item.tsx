@@ -6,11 +6,26 @@ import { Component, Host, h, Prop, EventEmitter, Event } from "@stencil/core";
   shadow: true,
 })
 export class RadioItem {
+  /**
+   * label of the radio item.
+   */
   @Prop() label: string;
+
+  /**
+   * The checked value of the radio item.
+   */
   @Prop({ mutable: true }) checked: boolean = false;
+  
+  /**
+   * Event is emitted when the radio is checked.
+   * It is not recommended to listen to this event when radio-item is grouped with radio-group
+   */
   @Event() optionSelected: EventEmitter<{ name: string }>;
 
-  handleClick = () => {
+  /**
+   * private method to handle onClick event on radio input
+   */
+  private handleClick = () => {
     this.checked = true;
     this.optionSelected.emit({ name: this.label });
   };

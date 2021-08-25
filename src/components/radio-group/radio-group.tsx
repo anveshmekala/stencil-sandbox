@@ -14,9 +14,18 @@ import {
   shadow: true,
 })
 export class RadioGroup {
+  /**
+   * Fires in when there is a change in selection of radioitem.
+   * It is recommended to attach the listener directly to radio-group component.
+   */
   @Event() optionChanged: EventEmitter<{ selectedRadioItem: string }>;
-  @Element() el: HTMLElement;
 
+  @Element() el: HTMLElement;
+ 
+  /**
+   * 
+   * Event Listener
+   */
   @Listen("optionSelected")
   handleSelection(event: CustomEvent<{ name: string }>) {
     console.log(event.detail)
@@ -32,6 +41,7 @@ export class RadioGroup {
     });
     this.optionChanged.emit({ selectedRadioItem: event.detail.name });
   }
+
 
   render() {
     return (
