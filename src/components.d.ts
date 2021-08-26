@@ -6,6 +6,18 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AnveshmekalaRadioGroup {
+    }
+    interface AnveshmekalaRadioItem {
+        /**
+          * The checked value of the radio item.
+         */
+        "checked": boolean;
+        /**
+          * label of the radio item.
+         */
+        "label": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -27,6 +39,18 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLAnveshmekalaRadioGroupElement extends Components.AnveshmekalaRadioGroup, HTMLStencilElement {
+    }
+    var HTMLAnveshmekalaRadioGroupElement: {
+        prototype: HTMLAnveshmekalaRadioGroupElement;
+        new (): HTMLAnveshmekalaRadioGroupElement;
+    };
+    interface HTMLAnveshmekalaRadioItemElement extends Components.AnveshmekalaRadioItem, HTMLStencilElement {
+    }
+    var HTMLAnveshmekalaRadioItemElement: {
+        prototype: HTMLAnveshmekalaRadioItemElement;
+        new (): HTMLAnveshmekalaRadioItemElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -46,12 +70,34 @@ declare global {
         new (): HTMLSelectProgressbarElement;
     };
     interface HTMLElementTagNameMap {
+        "anveshmekala-radio-group": HTMLAnveshmekalaRadioGroupElement;
+        "anveshmekala-radio-item": HTMLAnveshmekalaRadioItemElement;
         "my-component": HTMLMyComponentElement;
         "progress-bar": HTMLProgressBarElement;
         "select-progressbar": HTMLSelectProgressbarElement;
     }
 }
 declare namespace LocalJSX {
+    interface AnveshmekalaRadioGroup {
+        /**
+          * Fires in when there is a change in selection of radioitem. It is recommended to attach the listener directly to radio-group component.
+         */
+        "onOptionChanged"?: (event: CustomEvent<{ selectedRadioItem: string }>) => void;
+    }
+    interface AnveshmekalaRadioItem {
+        /**
+          * The checked value of the radio item.
+         */
+        "checked"?: boolean;
+        /**
+          * label of the radio item.
+         */
+        "label"?: string;
+        /**
+          * Event is emitted when the radio is checked. It is not recommended to listen to this event when radio-item is grouped with radio-group
+         */
+        "onOptionSelected"?: (event: CustomEvent<{ name: string }>) => void;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -72,6 +118,8 @@ declare namespace LocalJSX {
     interface SelectProgressbar {
     }
     interface IntrinsicElements {
+        "anveshmekala-radio-group": AnveshmekalaRadioGroup;
+        "anveshmekala-radio-item": AnveshmekalaRadioItem;
         "my-component": MyComponent;
         "progress-bar": ProgressBar;
         "select-progressbar": SelectProgressbar;
@@ -81,6 +129,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "anveshmekala-radio-group": LocalJSX.AnveshmekalaRadioGroup & JSXBase.HTMLAttributes<HTMLAnveshmekalaRadioGroupElement>;
+            "anveshmekala-radio-item": LocalJSX.AnveshmekalaRadioItem & JSXBase.HTMLAttributes<HTMLAnveshmekalaRadioItemElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "progress-bar": LocalJSX.ProgressBar & JSXBase.HTMLAttributes<HTMLProgressBarElement>;
             "select-progressbar": LocalJSX.SelectProgressbar & JSXBase.HTMLAttributes<HTMLSelectProgressbarElement>;
