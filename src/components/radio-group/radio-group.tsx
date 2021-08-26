@@ -30,7 +30,7 @@ export class RadioGroup {
   handleSelection(event: CustomEvent<{ name: string }>) {
     console.log(event.detail)
     const otherRadioButtons = Array.from(
-      this.el.querySelectorAll("radio-item")
+      this.el.querySelectorAll("anveshmekala-radio-item")
     ).filter(
       (radioItem: HTMLAnveshmekalaRadioItemElement) => radioItem.label != event.detail.name
     );
