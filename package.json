@@ -24,7 +24,8 @@
     "docs.data": "stencil build --docs-readme"
   },
   "dependencies": {
-    "@stencil/core": "^2.0.1"
+    "@stencil/core": "^2.0.1",
+    "@stencil/router": "^1.0.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.24",

@@ -28,6 +28,8 @@ export namespace Components {
     }
     interface AnveshmekalaToggleButton {
     }
+    interface AppMain {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -74,6 +76,12 @@ declare global {
         prototype: HTMLAnveshmekalaToggleButtonElement;
         new (): HTMLAnveshmekalaToggleButtonElement;
     };
+    interface HTMLAppMainElement extends Components.AppMain, HTMLStencilElement {
+    }
+    var HTMLAppMainElement: {
+        prototype: HTMLAppMainElement;
+        new (): HTMLAppMainElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -86,6 +94,7 @@ declare global {
         "anveshmekala-radio-item": HTMLAnveshmekalaRadioItemElement;
         "anveshmekala-select-progressbar": HTMLAnveshmekalaSelectProgressbarElement;
         "anveshmekala-toggle-button": HTMLAnveshmekalaToggleButtonElement;
+        "app-main": HTMLAppMainElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -120,6 +129,8 @@ declare namespace LocalJSX {
     }
     interface AnveshmekalaToggleButton {
     }
+    interface AppMain {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -140,6 +151,7 @@ declare namespace LocalJSX {
         "anveshmekala-radio-item": AnveshmekalaRadioItem;
         "anveshmekala-select-progressbar": AnveshmekalaSelectProgressbar;
         "anveshmekala-toggle-button": AnveshmekalaToggleButton;
+        "app-main": AppMain;
         "my-component": MyComponent;
     }
 }
@@ -152,6 +164,7 @@ declare module "@stencil/core" {
             "anveshmekala-radio-item": LocalJSX.AnveshmekalaRadioItem & JSXBase.HTMLAttributes<HTMLAnveshmekalaRadioItemElement>;
             "anveshmekala-select-progressbar": LocalJSX.AnveshmekalaSelectProgressbar & JSXBase.HTMLAttributes<HTMLAnveshmekalaSelectProgressbarElement>;
             "anveshmekala-toggle-button": LocalJSX.AnveshmekalaToggleButton & JSXBase.HTMLAttributes<HTMLAnveshmekalaToggleButtonElement>;
+            "app-main": LocalJSX.AppMain & JSXBase.HTMLAttributes<HTMLAppMainElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
