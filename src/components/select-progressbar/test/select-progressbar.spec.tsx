@@ -2,14 +2,15 @@ import { newSpecPage } from '@stencil/core/testing';
 import { SelectProgressbar } from '../select-progressbar';
 
 describe('select-progressbar', () => {
+
   it('renders', async () => {
     const page = await newSpecPage({
       components: [SelectProgressbar],
-      html: `<select-progressbar></select-progressbar>`,
+      html: `<anveshmekala-select-progressbar></anveshmekala-select-progressbar>`,
     });
 
     expect(page.root).toEqualHtml(`
-      <select-progressbar>
+      <anveshmekala-select-progressbar>
         <mock:shadow-root>
         <div>
         <form>
@@ -20,22 +21,11 @@ describe('select-progressbar', () => {
           </select>
         </form>
         <br>
-        <progress-bar> </progress-bar>
+        <anveshmekala-progress-bar> </anveshmekala-progress-bar>
       </div>
         </mock:shadow-root>
-      </select-progressbar>
+      </anveshmekala-select-progressbar>
     `);
   });
 
-  it('should update the state value ', () =>{
-    const selectComponent = new SelectProgressbar();
-     selectComponent.handleSelect(new Event('InDeterminate'));
-    expect(selectComponent.selectValue).toBe('InDeterminate')
-  })
-
-  it('should update the state value ', () =>{
-    const selectComponent = new SelectProgressbar();
-     selectComponent.handleSelect(new Event('Determinate'));
-    expect(selectComponent.selectValue).toBe('Determinate')
-  })
 });

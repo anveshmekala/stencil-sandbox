@@ -1,33 +1,41 @@
 import { Component, h, State } from '@stencil/core';
 
 @Component({
-  tag: 'select-progressbar',
+  tag: 'anveshmekala-select-progressbar',
   styleUrl: 'select-progressbar.css',
   shadow: true,
 })
 export class SelectProgressbar {
+  /**
+   * stores the type of progressbar
+   */
+  @State() type: string;
 
-  @State() selectValue: string;
-
-  handleSelect(event: any) {
-    this.selectValue = event.target.value;
+  private handleSelect(e) {
+    this.type = e.target.value;
   }
 
   render() {
     return (
       <div>
         <form>
-
           <label>Select Type of progress bar :</label>
-          <select onInput={(event) => this.handleSelect(event)}>
-            <option value="InDeterminate" selected={this.selectValue === 'InDeterminate'}>InDeterminate</option>
-            <option value="Determinate" selected={this.selectValue === 'Determinate'}>Determinate</option>
+          <select
+            onChange={(e)=> {
+              this.handleSelect((e));
+            }}
+          >
+            <option value="InDeterminate"  selected={this.type === 'InDeterminate'}>
+              InDeterminate
+            </option>
+            <option value="Determinate" selected={this.type === 'Determinate'}>
+              Determinate
+            </option>
           </select>
         </form>
         <br></br>
-        <progress-bar type={this.selectValue}> </progress-bar>
+        <anveshmekala-progress-bar type={this.type}> </anveshmekala-progress-bar>
       </div>
     );
   }
-
 }
