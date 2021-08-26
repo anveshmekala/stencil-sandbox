@@ -1,21 +1,24 @@
 import { Component, Host, h, State } from '@stencil/core';
 
 @Component({
-  tag: 'toggle-button',
+  tag: 'anveshmekala-toggle-button',
   styleUrl: 'toggle-button.css',
   shadow: true,
 })
 export class ToggleButton {
+  /**
+   * checked value 
+   */
   @State() isChecked: boolean = false;
 
-  handleToggle = () => {
+
+  private handleToggle = () => {
     this.isChecked = !this.isChecked;
   };
 
   render() {
     return (
       <Host>
-        <slot>
           <div>
             <div class="container">
             <input  type="checkbox" onClick={this.handleToggle} />
@@ -29,7 +32,6 @@ export class ToggleButton {
            
           </div>
           <h4> {this.isChecked ? "ON" : "OFF"}</h4>
-        </slot>
       </Host>
     );
   }

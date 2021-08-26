@@ -5,12 +5,11 @@ describe('toggle-button', () => {
   it('renders', async () => {
     const page = await newSpecPage({
       components: [ToggleButton],
-      html: `<toggle-button></toggle-button>`,
+      html: `<anveshmekala-toggle-button></anveshmekala-toggle-button>`,
     });
     expect(page.root).toEqualHtml(`
-      <toggle-button>
+      <anveshmekala-toggle-button>
         <mock:shadow-root>
-          <slot>
           <div>
             <div class="container">
             <input  type="checkbox" />
@@ -20,9 +19,8 @@ describe('toggle-button', () => {
             </div>
           </div>
           <h4> OFF</h4>
-          </slot>
         </mock:shadow-root>
-      </toggle-button>
+      </anveshmekala-toggle-button>
     `);
   });
 
@@ -33,7 +31,7 @@ describe('toggle-button', () => {
 
   it('isChecked to be true on handleToggle',()=>{
     const toggleButton = new ToggleButton();
-    toggleButton.handleToggle()
+    toggleButton['handleToggle']()
     expect(toggleButton.isChecked).toBe(true);
   })
 });
