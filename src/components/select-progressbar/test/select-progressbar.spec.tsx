@@ -2,17 +2,30 @@ import { newSpecPage } from '@stencil/core/testing';
 import { SelectProgressbar } from '../select-progressbar';
 
 describe('select-progressbar', () => {
+
   it('renders', async () => {
     const page = await newSpecPage({
       components: [SelectProgressbar],
-      html: `<select-progressbar></select-progressbar>`,
+      html: `<anveshmekala-select-progressbar></anveshmekala-select-progressbar>`,
     });
+
     expect(page.root).toEqualHtml(`
-      <select-progressbar>
+      <anveshmekala-select-progressbar>
         <mock:shadow-root>
-          <slot></slot>
+        <div>
+        <form>
+          <label>Select Type of progress bar :</label>
+          <select>
+            <option value="InDeterminate" >InDeterminate</option>
+            <option value="Determinate" >Determinate</option>
+          </select>
+        </form>
+        <br>
+        <anveshmekala-progress-bar> </anveshmekala-progress-bar>
+      </div>
         </mock:shadow-root>
-      </select-progressbar>
+      </anveshmekala-select-progressbar>
     `);
   });
+
 });

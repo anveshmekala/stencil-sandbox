@@ -6,6 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AnveshmekalaProgressBar {
+        /**
+          * type of progress bar. Default value is set to Inderterminate
+         */
+        "type": string;
+    }
     interface AnveshmekalaRadioGroup {
     }
     interface AnveshmekalaRadioItem {
@@ -18,7 +24,11 @@ export namespace Components {
          */
         "label": string;
     }
+
     interface AnveshmekalaToggleButton {
+    }
+    interface AnveshmekalaSelectProgressbar {
+
     }
     interface MyComponent {
         /**
@@ -34,13 +44,14 @@ export namespace Components {
          */
         "middle": string;
     }
-    interface ProgressBar {
-        "type": string;
-    }
-    interface SelectProgressbar {
-    }
 }
 declare global {
+    interface HTMLAnveshmekalaProgressBarElement extends Components.AnveshmekalaProgressBar, HTMLStencilElement {
+    }
+    var HTMLAnveshmekalaProgressBarElement: {
+        prototype: HTMLAnveshmekalaProgressBarElement;
+        new (): HTMLAnveshmekalaProgressBarElement;
+    };
     interface HTMLAnveshmekalaRadioGroupElement extends Components.AnveshmekalaRadioGroup, HTMLStencilElement {
     }
     var HTMLAnveshmekalaRadioGroupElement: {
@@ -53,11 +64,19 @@ declare global {
         prototype: HTMLAnveshmekalaRadioItemElement;
         new (): HTMLAnveshmekalaRadioItemElement;
     };
+
     interface HTMLAnveshmekalaToggleButtonElement extends Components.AnveshmekalaToggleButton, HTMLStencilElement {
     }
     var HTMLAnveshmekalaToggleButtonElement: {
         prototype: HTMLAnveshmekalaToggleButtonElement;
         new (): HTMLAnveshmekalaToggleButtonElement;
+
+    interface HTMLAnveshmekalaSelectProgressbarElement extends Components.AnveshmekalaSelectProgressbar, HTMLStencilElement {
+    }
+    var HTMLAnveshmekalaSelectProgressbarElement: {
+        prototype: HTMLAnveshmekalaSelectProgressbarElement;
+        new (): HTMLAnveshmekalaSelectProgressbarElement;
+
     };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
@@ -65,28 +84,22 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
-    interface HTMLProgressBarElement extends Components.ProgressBar, HTMLStencilElement {
-    }
-    var HTMLProgressBarElement: {
-        prototype: HTMLProgressBarElement;
-        new (): HTMLProgressBarElement;
-    };
-    interface HTMLSelectProgressbarElement extends Components.SelectProgressbar, HTMLStencilElement {
-    }
-    var HTMLSelectProgressbarElement: {
-        prototype: HTMLSelectProgressbarElement;
-        new (): HTMLSelectProgressbarElement;
-    };
     interface HTMLElementTagNameMap {
+        "anveshmekala-progress-bar": HTMLAnveshmekalaProgressBarElement;
         "anveshmekala-radio-group": HTMLAnveshmekalaRadioGroupElement;
         "anveshmekala-radio-item": HTMLAnveshmekalaRadioItemElement;
         "anveshmekala-toggle-button": HTMLAnveshmekalaToggleButtonElement;
+        "anveshmekala-select-progressbar": HTMLAnveshmekalaSelectProgressbarElement;
         "my-component": HTMLMyComponentElement;
-        "progress-bar": HTMLProgressBarElement;
-        "select-progressbar": HTMLSelectProgressbarElement;
     }
 }
 declare namespace LocalJSX {
+    interface AnveshmekalaProgressBar {
+        /**
+          * type of progress bar. Default value is set to Inderterminate
+         */
+        "type"?: string;
+    }
     interface AnveshmekalaRadioGroup {
         /**
           * Fires in when there is a change in selection of radioitem. It is recommended to attach the listener directly to radio-group component.
@@ -107,7 +120,11 @@ declare namespace LocalJSX {
          */
         "onOptionSelected"?: (event: CustomEvent<{ name: string }>) => void;
     }
+
     interface AnveshmekalaToggleButton {
+    }
+    interface AnveshmekalaSelectProgressbar {
+
     }
     interface MyComponent {
         /**
@@ -123,30 +140,25 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
-    interface ProgressBar {
-        "type"?: string;
-    }
-    interface SelectProgressbar {
-    }
     interface IntrinsicElements {
+        "anveshmekala-progress-bar": AnveshmekalaProgressBar;
         "anveshmekala-radio-group": AnveshmekalaRadioGroup;
         "anveshmekala-radio-item": AnveshmekalaRadioItem;
         "anveshmekala-toggle-button": AnveshmekalaToggleButton;
+        "anveshmekala-select-progressbar": AnveshmekalaSelectProgressbar;
         "my-component": MyComponent;
-        "progress-bar": ProgressBar;
-        "select-progressbar": SelectProgressbar;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "anveshmekala-progress-bar": LocalJSX.AnveshmekalaProgressBar & JSXBase.HTMLAttributes<HTMLAnveshmekalaProgressBarElement>;
             "anveshmekala-radio-group": LocalJSX.AnveshmekalaRadioGroup & JSXBase.HTMLAttributes<HTMLAnveshmekalaRadioGroupElement>;
             "anveshmekala-radio-item": LocalJSX.AnveshmekalaRadioItem & JSXBase.HTMLAttributes<HTMLAnveshmekalaRadioItemElement>;
             "anveshmekala-toggle-button": LocalJSX.AnveshmekalaToggleButton & JSXBase.HTMLAttributes<HTMLAnveshmekalaToggleButtonElement>;
+            "anveshmekala-select-progressbar": LocalJSX.AnveshmekalaSelectProgressbar & JSXBase.HTMLAttributes<HTMLAnveshmekalaSelectProgressbarElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "progress-bar": LocalJSX.ProgressBar & JSXBase.HTMLAttributes<HTMLProgressBarElement>;
-            "select-progressbar": LocalJSX.SelectProgressbar & JSXBase.HTMLAttributes<HTMLSelectProgressbarElement>;
         }
     }
 }
