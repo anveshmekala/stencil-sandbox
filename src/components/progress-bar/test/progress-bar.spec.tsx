@@ -1,25 +1,19 @@
-import { newSpecPage } from '@stencil/core/testing';
-import { ProgressBar } from '../progress-bar';
+import { newSpecPage } from "@stencil/core/testing";
+import { ProgressBar } from "../progress-bar";
 
-describe('progress-bar', () => {
-  it('renders', async () => {
+describe("progress-bar", () => {
+  it("renders", async () => {
     const page = await newSpecPage({
       components: [ProgressBar],
-      html: `<progress-bar></progress-bar>`,
+      html: `<anveshmekala-progress-bar></anveshmekala-progress-bar>`,
     });
     expect(page.root).toEqualHtml(`
-      <progress-bar>
+      <anveshmekala-progress-bar>
         <mock:shadow-root>
-          <slot></slot>
+        <div class="progressbar indeterminate"
+        >
         </mock:shadow-root>
-      </progress-bar>
+      </anveshmekala-progress-bar>
     `);
   });
-  it('should render with determinite class ', async()=>{
-    const page = await newSpecPage({
-      components: [ProgressBar],
-      html: `<progress-bar type="Determinate"></progress-bar>`,
-    });
-    console.log(page.root.className)
-  })
 });
